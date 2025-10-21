@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout | FITNA-SITE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #000, #1a1a1a);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(255, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ff0000;
+    }
+
+    header h1 {
+      color: #ff0000;
+      letter-spacing: 2px;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff0000;
+    }
+
+    .section {
+      padding: 60px 10%;
+      border-bottom: 1px solid #333;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #ff0000;
+      margin-bottom: 20px;
+      border-left: 4px solid #ff0000;
+      padding-left: 10px;
+    }
+
+    .exercise-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .exercise {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .exercise:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+    }
+
+    .exercise h3 {
+      color: #ff0000;
+      margin-bottom: 10px;
+    }
+
+    .exercise p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      background: #0d0d0d;
+      color: #999;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav a {
+        display: inline-block;
+        margin: 10px;
+      }
+      .section h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FITNA WORKOUT</h1>
+    <nav>
+      <a href="fitna.html">Басты бет</a>
+      <a href="nutrition.html">Тамақтану</a>
+      <a href="motivation.html">Мотивация</a>
+    </nav>
+  </header>
+
+  <section class="section" id="chest">
+    <h2>Кеуде</h2>
+    <div class="exercise-list">
+      <div class="exercise">
+        <h3>Дүмбілмен жатып көтеру</h3>
+        <p>4×12 — кеуденің жоғарғы бөлігін дамытады.</p>
+      </div>
+      <div class="exercise">
+        <h3>Қолды кең қойып итеру</h3>
+        <p>3×20 — кеуденің орта және төменгі бөлігін шыңдайды.</p>
+      </div>
+      <div class="exercise">
+        <h3>Қисайған орындықта көтеру</h3>
+        <p>4×10 — жоғарғы кеуде бұлшықеттері үшін.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="back">
+    <h2>Арқа</h2>
+    <div class="exercise-list">
+      <div class="exercise">
+        <h3>Тарту (подтягивание)</h3>
+        <p>4×10 — арқа кеңдігін арттырады.</p>
+      </div>
+      <div class="exercise">
+        <h3>Дүмбілмен еңкейіп тарту</h3>
+        <p>4×12 — ортаңғы арқа мен лат бұлшықеттерін дамытады.</p>
+      </div>
+      <div class="exercise">
+        <h3>Супермен</h3>
+        <p>3×15 — бел мен арқа төменгі бөлігін нығайтады.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="legs">
+    <h2>Аяқ</h2>
+    <div class="exercise-list">
+      <div class="exercise">
+        <h3>Скват</h3>
+        <p>4×15 — аяқ пен жамбасты дамытады.</p>
+      </div>
+      <div class="exercise">
+        <h3>Лаңғамен көтерілу</h3>
+        <p>3×20 — балтыр бұлшықеттері үшін.</p>
+      </div>
+      <div class="exercise">
+        <h3>Лаңғамен бір аяқтап тұру</h3>
+        <p>3×12 — тепе-теңдік пен күшті арттырады.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="arms">
+    <h2>Қол</h2>
+    <div class="exercise-list">
+      <div class="exercise">
+        <h3>Бицепс көтеру (дүмбілмен)</h3>
+        <p>4×12 — бицепс формасын жақсартады.</p>
+      </div>
+      <div class="exercise">
+        <h3>Трицепс артқа итеру</h3>
+        <p>3×15 — трицепс бұлшықеттерін күшейтеді.</p>
+      </div>
+      <div class="exercise">
+        <h3>Қолмен итеру (жақын қою)</h3>
+        <p>3×20 — қол мен кеудені бірге дамытады.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="abs">
+    <h2>Пресс</h2>
+    <div class="exercise-list">
+      <div class="exercise">
+        <h3>Аяқты көтеру</h3>
+        <p>4×15 — төменгі пресс бөлігін дамытады.</p>
+      </div>
+      <div class="exercise">
+        <h3>Классикалық пресс</h3>
+        <p>4×20 — жалпы іш бұлшықеттерін шыңдайды.</p>
+      </div>
+      <div class="exercise">
+        <h3>Планка</h3>
+        <p>3×1 мин — тұрақтылық пен пресс күшін арттырады.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 FITNA-SITE. Барлық құқықтар қорғалған.</p>
+  </footer>
+
+</body>
+</html>

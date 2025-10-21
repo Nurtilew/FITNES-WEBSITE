@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivation | FITNA-SITE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #000, #1a1a1a);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(255, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ff0000;
+    }
+
+    header h1 {
+      color: #ff0000;
+      letter-spacing: 2px;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff0000;
+    }
+
+    .section {
+      padding: 60px 10%;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #ff0000;
+      margin-bottom: 30px;
+      border-left: 4px solid #ff0000;
+      padding-left: 10px;
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .quote {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+      transition: 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+    }
+
+    .quote::before {
+      content: '🔥';
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      opacity: 0.3;
+      font-size: 1.5rem;
+    }
+
+    .quote p {
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .quote strong {
+      color: #ff0000;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      background: #0d0d0d;
+      color: #999;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav a {
+        display: inline-block;
+        margin: 10px;
+      }
+      .section h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FITNA MOTIVATION</h1>
+    <nav>
+      <a href="fitna.html">Басты бет</a>
+      <a href="workout.html">Жаттығулар</a>
+      <a href="nutrition.html">Тамақтану</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h2>Мотивациялық сөздер</h2>
+    <div class="quote-grid">
+      <div class="quote">
+        <p><strong>“Бүгін ауыр болса — ертең жеңіл болады.”</strong></p>
+        <p>Күн сайын аздап болса да алға жылжы — сол сені өзгеден мықты етеді.</p>
+      </div>
+
+      <div class="quote">
+        <p><strong>“Сен қарсыласқа емес, өз әлсіздігіңе қарсы күресесің.”</strong></p>
+        <p>Шынайы жауың — сенің ішкі жалқаулығың мен қорқынышың.</p>
+      </div>
+
+      <div class="quote">
+        <p><strong>“Нәтиже — тек тұрақтылықтан туады.”</strong></p>
+        <p>Жаттығу — бұл жазалау емес, өзіңе деген құрмет.</p>
+      </div>
+
+      <div class="quote">
+        <p><strong>“Жан берсең де, берілме.”</strong></p>
+        <p>Мықты дене — батыл жүректен басталады.</p>
+      </div>
+
+      <div class="quote">
+        <p><strong>“Бүгін тер төксең, ертең мақтан тұтасың.”</strong></p>
+        <p>Әр ауыр жаттығу — болашақтағы өзіңнің жеңісің.</p>
+      </div>
+
+      <div class="quote">
+        <p><strong>“Тоқтама, дәл қазір ең қиын сәт — бұзылу емес, өсу уақыты.”</strong></p>
+        <p>Күш – шыдамдылықтан туады. Өзіңе сен.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Өмірлік кеңестер</h2>
+    <div class="quote-grid">
+      <div class="quote">
+        <p><strong>Жоспар құр.</strong></p>
+        <p>Жай ғана мақсат емес — күнделікті әрекет жаса. Әр күн — есеп.</p>
+      </div>
+      <div class="quote">
+        <p><strong>Денеңді тыңда.</strong></p>
+        <p>Қалжырау — тоқтау емес, демалып қайта шабуыл жасау сигналы.</p>
+      </div>
+      <div class="quote">
+        <p><strong>Тәртіп — бәрінен биік.</strong></p>
+        <p>Ерік күшің — сенің ең үлкен қаруың.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 FITNA-SITE. Барлық құқықтар қорғалған.</p>
+  </footer>
+
+</body>
+</html>
