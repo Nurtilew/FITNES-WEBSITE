@@ -6,7 +6,7 @@
 <title>FITNA — Басты бет</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
-  :root{
+:root{
   --g1: #c80000;
   --g2: #ff4d4d;
   --bg: #000000;
@@ -29,9 +29,9 @@ body{
 /* page frame */
 .page{
   max-width:1100px;
-  margin:40px auto;
+  margin:40px auto 80px auto;
   position:relative;
-  padding-left:90px; /* reserve space for left stripe */
+  padding-left:90px;
 }
 
 /* left vertical stripe */
@@ -42,7 +42,8 @@ body{
   background: linear-gradient(180deg,var(--g1), var(--g2));
   border-top-right-radius:30px;
   border-bottom-right-radius:30px;
-  box-shadow: 8px 0 30px rgba(255,0,0,0.2);
+  box-shadow: 8px 0 30px rgba(255,0,0,0.25);
+  z-index:1;
 }
 
 /* top header */
@@ -52,6 +53,8 @@ header.site-head{
   justify-content:space-between;
   gap:20px;
   padding:18px 30px;
+  position:relative;
+  z-index:5;
 }
 .brand{
   display:flex;
@@ -73,120 +76,192 @@ header.site-head{
   font-size:18px;font-weight:700;letter-spacing:0.6px;color:#fff;
 }
 
-nav.top-links{display:flex;gap:12px;align-items:center}
+/* top nav links */
+nav.top-links{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  transition:all 0.3s ease;
+}
 nav.top-links a{
   font-weight:600;color:var(--g2);text-decoration:none;
   padding:8px 12px;border-radius:10px;font-size:14px;
   transition:0.3s;
 }
-nav.top-links a:hover{
-  background:var(--g1);color:#fff;
-}
+nav.top-links a:hover{background:var(--g1);color:#fff;}
 nav.top-links a.cta{
-  background:var(--g1);color:#fff;padding:10px 14px;
+  background:linear-gradient(90deg,var(--g1),var(--g2));
+  color:#fff;padding:10px 14px;
   box-shadow: 0 6px 20px rgba(255,0,0,0.3);
 }
 
-/* main hero + side card layout */
+/* burger button */
+.burger {
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  width:32px;
+  height:28px;
+  cursor:pointer;
+  z-index:100;
+}
+.burger span {
+  height:3px;
+  width:100%;
+  background:var(--g2);
+  margin:4px 0;
+  border-radius:2px;
+  transition:0.3s;
+}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
+nav.top-links.open{
+  display:flex;
+  flex-direction:column;
+  position:absolute;
+  top:70px;right:30px;
+  background:rgba(0,0,0,0.95);
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 0 20px rgba(255,0,0,0.4);
+  animation:fadeIn 0.3s ease;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(-10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Hero Section */
 .hero-wrap{
   display:grid;
   grid-template-columns: 1fr 340px;
   gap:26px;
   align-items:start;
-  margin-top:8px;
+  margin-top:50px;
+  margin-bottom:80px;
+  position:relative;
+  z-index:3;
 }
 
-/* hero main card */
 .hero{
   background: linear-gradient(180deg, rgba(20,20,20,0.95), #0d0d0d);
   border-radius: var(--radius);
   padding:42px;
   box-shadow: 0 12px 40px rgba(255,0,0,0.15);
-  position:relative;
   overflow:hidden;
 }
-.hero h1{
-  margin:0 0 12px;font-size:34px;line-height:1.05;
-  color:#ff1a1a;font-weight:800;
-}
+.hero h1{margin:0 0 12px;font-size:34px;line-height:1.1;color:#ff1a1a;font-weight:800;}
 .hero p{margin:0 0 18px;color:var(--muted);font-size:16px}
 .hero .hero-cta{
-  display:inline-block;background:linear-gradient(90deg,var(--g1),var(--g2));
+  display:inline-block;
+  background:linear-gradient(90deg,var(--g1),var(--g2));
   color:#fff;padding:14px 20px;border-radius:12px;font-weight:700;
   text-decoration:none;box-shadow: 0 10px 28px rgba(255,0,0,0.25);
+  transition:0.3s;
 }
 .hero .hero-cta:hover{transform:scale(1.05);}
-
-/* subtle corner decoration */
 .hero::after{
   content:"";position:absolute;right:22px;top:18px;width:120px;height:60px;
   background:linear-gradient(90deg,#220000,rgba(255,0,0,0.1));
-  border-bottom-left-radius:34px;
-  opacity:0.8;
+  border-bottom-left-radius:34px;opacity:0.8;
 }
 
-/* promo card */
+/* Promo block */
 .promo{
   background:linear-gradient(180deg,#1a0000, #000);
-  border-radius:22px;padding:18px;box-shadow: 0 10px 28px rgba(255,0,0,0.1);
-  position:relative;overflow:visible;color:#fff;
+  border-radius:22px;padding:24px;
+  box-shadow: 0 10px 28px rgba(255,0,0,0.2);
+  color:#fff;
 }
 .promo .tag{font-weight:700;color:var(--g2);font-size:13px;margin-bottom:10px}
 .promo h3{margin:4px 0 10px;font-size:20px;color:#ff4d4d}
 .promo p{color:#bbb;font-size:14px;line-height:1.5}
-.promo .card-btn{
+.btn{
   display:inline-block;margin-top:14px;padding:10px 14px;border-radius:10px;
   background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;font-weight:700;text-decoration:none;
+  transition:0.3s;
 }
-.promo .corner{
-  position:absolute;right:10px;bottom:10px;width:0;height:0;border-left:28px solid transparent;
-  border-top:28px solid var(--g1);transform:rotate(180deg);opacity:0.95;border-top-left-radius:2px;
-}
+.btn:hover{transform:scale(1.05);}
 
-/* section cards */
-.card-row{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
+/* Cards Section */
+.card-row{
+  display:flex;
+  gap:22px;
+  margin-top:0;
+  margin-bottom:80px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:4;
+}
 .card{
   flex:1;min-width:260px;background:linear-gradient(180deg,#111,#1a0000);
-  border-radius:20px;padding:26px;box-shadow: 0 12px 30px rgba(255,0,0,0.1);
-  color:#fff;
+  border-radius:20px;padding:26px;box-shadow: 0 12px 30px rgba(255,0,0,0.3);
+  color:#fff;transition:0.4s;
 }
+.card:hover{transform:translateY(-10px);box-shadow:0 0 40px rgba(255,0,0,0.5);}
 .card h4{margin:0 0 10px;color:#ff4d4d}
 .card p{color:#bfbfbf;font-size:15px}
-.card .card-btn{
-  display:inline-block;margin-top:14px;padding:10px 14px;border-radius:10px;
-  background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;font-weight:700;text-decoration:none;
-}
 
-/* big-section */
+/* Motivation Section */
 .big-section{
-  margin-top:40px;background: linear-gradient(180deg,#1a0000,#000000);
-  padding:36px;border-radius:20px;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-  box-shadow: 0 12px 44px rgba(255,0,0,0.2);
+  background: linear-gradient(180deg,#1a0000,#000000);
+  padding:40px 36px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  box-shadow: 0 12px 44px rgba(255,0,0,0.25);
+  margin-bottom:80px;
 }
 .big-section .quote{font-size:20px;color:#ff4d4d;font-weight:700;max-width:720px}
-.big-section .small{color:#aaa}
+.big-section .small{color:#aaa;margin-top:10px}
+.big-section a{
+  text-decoration:none;background:linear-gradient(90deg,var(--g1),var(--g2));
+  color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;
+  box-shadow:0 10px 28px rgba(255,0,0,0.25);transition:0.3s;
+}
+.big-section a:hover{transform:scale(1.05);}
 
 /* footer */
 footer{
-  margin-top:40px;padding:30px 8px;text-align:center;
-  color:#888;font-size:14px;background:#0a0000;border-top:1px solid #220000;
+  text-align:center;
+  color:#888;
+  font-size:14px;
+  background:#0a0000;
+  border-top:1px solid #220000;
+  padding:30px 8px;
+  box-shadow: 0 -4px 25px rgba(255,0,0,0.2);
 }
 
 /* responsive */
 @media (max-width:900px){
   .page{padding-left:20px}
   .left-stripe{width:56px}
-  .hero-wrap{grid-template-columns:1fr}
-  .hero{order:1}
-  .promo{order:2}
+  .hero-wrap{grid-template-columns:1fr;margin-top:30px;margin-bottom:60px;}
+  .card-row{margin-bottom:60px;}
+  .big-section{flex-direction:column;text-align:center;gap:16px;}
+  .burger{display:flex;}
+  nav.top-links{display:none;}
+}
+
+.main-content {
+  position: relative;
+  z-index: 2;
+  margin-top: -80px; /* қызыл жолақ үстіне көтеру */
+}
+
+.big-section {
+  position: relative;
+  z-index: 3;
 }
 
 </style>
 </head>
 <body>
   <div class="page">
-    <div class="left-stripe" aria-hidden="true"></div>
+    <div class="left-stripe"></div>
 
     <header class="site-head">
       <div class="brand">
@@ -197,61 +272,72 @@ footer{
         </div>
       </div>
 
-      <nav class="top-links">
+      <nav class="top-links" id="navMenu">
         <a href="workout.html">Жаттығулар</a>
         <a href="nutrition.html">Тамақтану</a>
         <a href="motivation.html">Мотивация</a>
         <a href="contact.html" class="cta">Қосылу</a>
       </nav>
+
+      <div class="burger" id="burgerBtn">
+        <span></span><span></span><span></span>
+      </div>
     </header>
 
+    <!-- Hero -->
     <section class="hero-wrap">
-      <article class="hero" role="main" aria-labelledby="hero-title">
-        <h1 id="hero-title">Спорт — бұл<br>сенің өміріңнің күші</h1>
+      <article class="hero">
+        <h1>Спорт — бұл<br>сенің өміріңнің күші</h1>
         <p>Жауабыңды таб: жүйелі жаттығу + дұрыс тамақтану. Бастысы — бастау. Бізден жоспар, сенен табандылық.</p>
         <a class="hero-cta" href="#workouts">Жаттығу бағдарламалары</a>
       </article>
 
-      <aside class="promo" aria-labelledby="promo-title">
+      <aside class="promo">
         <div class="tag">Кілт жобалар</div>
-        <h3 id="promo-title">FITNA — Тренировка пакеттері</h3>
+        <h3>FITNA — Тренировка пакеттері</h3>
         <p>Жеке жоспарлар, 24/7 қолдау, ай сайынғы прогресс бақылау. Қазір тіркеліп, бірінші аптаны тегін ал.</p>
         <div style="display:flex;gap:8px;margin-top:14px">
-          <a class="card-btn" href="workout.html">Кіріспе</a>
-          <a class="card-btn" href="nutrition.html" style="background:#e6ffe6;color:#02421a">Тамақтану</a>
+          <a class="btn" href="workout.html">Кіріспе</a>
+          <a class="btn" href="nutrition.html">Тамақтану</a>
         </div>
-        <div class="corner"></div>
       </aside>
     </section>
 
-    <!-- cards row (like two rounded blocks side-by-side) -->
+    <!-- Cards -->
     <div class="card-row" id="workouts">
       <div class="card">
         <h4>Күнделікті жаттығулар</h4>
         <p>Қысқа, күшті кесте — күнделікті прогресс үшін. 20–40 минут, қарқынға қарай.</p>
-        <a class="card-btn" href="workout.html">Толығырақ</a>
+        <a class="btn" href="workout.html">Толығырақ</a>
       </div>
-
       <div class="card">
         <h4 id="nutrition">Тамақтану кеңестері</h4>
         <p>Макроны теңгеру, пайдалы рецепттер және су тұтыну кестесі — нәтиже осыдан басталады.</p>
-        <a class="card-btn" href="nutrition.html">Толығырақ</a>
+        <a class="btn" href="nutrition.html">Толығырақ</a>
       </div>
     </div>
 
+    <!-- Motivation -->
     <div class="big-section" id="motivation">
       <div>
         <div class="quote">«Жаттығу — бұл күнделікті жеңісің. Бір күн кешіктірсең, ертеңгі жеңісің азаяды.»</div>
-        <div class="small" style="margin-top:10px">Басынан бастаудың уақыты — дәл қазір. Бірінші қадамы — шешім.</div>
+        <div class="small">Басынан бастаудың уақыты — дәл қазір. Бірінші қадамы — шешім.</div>
       </div>
-      <div style="text-align:right">
-        <a href="motivation.html" class="card-btn">Мотивация</a>
-      </div>
+      <div><a href="motivation.html">Мотивация</a></div>
     </div>
 
-    <footer id="contact">
-      FITNA — барлық құқықтар қорғалған · Қосылу үшін: info@fitna.kz
+    <footer>
+      FITNA — барлық құқықтар қорғалған · Байланыс: info@fitna.kz
     </footer>
   </div>
+
+<script>
+const burger = document.getElementById('burgerBtn');
+const navMenu = document.getElementById('navMenu');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  navMenu.classList.toggle('open');
+});
+</script>
 </body>
 </html>
